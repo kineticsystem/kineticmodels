@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+<!--
+    Common Maven goals
+    + eclipse:eclipse - generate an Eclipse project based on the POM file.
+    + clean - remove all class files.
+    + compile - compile the application.
+    + package - create artifacts e.g. JAR files.
+    + install - install all artifacts into the Maven repository.
+    + appassembler:assemble - create a running application.
+    + jsmooth:jsmoothcompile - create the executable.
+    -->
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.kineticsystem.commons</groupId>
+    <artifactId>org-kineticsystem-commons-layout-demo</artifactId>
+    <name>Kinetic System Commons Layout Demo</name>
+    <packaging>jar</packaging>
+    <version>SNAPSHOT</version>
+    <url>http://www.kineticsystem.org/commons/layout/demo</url>
+	
+    <pluginRepositories>
+        <pluginRepository>
+            <id>jmaven-jsmooth-plugin</id>
+            <url>http://mindtreeinsight.svn.sourceforge.net/svnroot/mindtreeinsight/maven-repo/trunk/release</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+	
+    <dependencies>
+    
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.6</version>
+            <scope>test</scope>
+        </dependency>
+        
+        <!-- Apache commons. -->
+        
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging-api</artifactId>
+            <version>1.1</version>
+            <scope>compile</scope>
+        </dependency>
+        
+        <!-- KineticSystem libraries. -->
+        
+        <dependency>
+            <groupId>org.kineticsystem.commons</groupId>
+            <artifactId>org-kineticsystem-commons-layout</artifactId>
+            <version>1.0</version>
+            <scope>compile</scope>
+        </dependency>
+        
+    </dependencies>
+	
+    <build>
+        <plugins>
+
+            <!-- Java 1.6 plugin to compile the application. -->
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+            <!-- Plugin to create Jar artifacts. -->
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>org.kineticsystem.commons.layout.demo.LayoutTest</mainClass>
+                            <addClasspath>true</addClasspath>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+
+            <!--  Plugin to execute automatic tests. -->
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                    <forkMode>never</forkMode>
+                    <includes>
+                        <include>**/*Test.java</include>
+                    </includes>
+                    <excludes>
+                        <exclude>**/*AllTests.java</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+
+            <!-- Plugin to assemble a redistributable application. -->
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>appassembler-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>assemble</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <repositoryLayout>flat</repositoryLayout>
+                    <repositoryName>lib</repositoryName>
+                    <assembleDirectory>${project.build.directory}</assembleDirectory>
+                    <showConsoleWindow>false</showConsoleWindow>
+                    <programs>
+                        <program>
+                            <mainClass>org.kineticsystem.commons.layout.demo.LayoutTest</mainClass>
+                            <name>LayoutDemo</name>
+                        </program>
+                    </programs>
+                </configuration>
+            </plugin>
+
+            <!-- Plugin to generate an exe file. -->
+
+            <plugin>
+                <groupId>com.mindtree.techworks.insight.releng</groupId>
+                <artifactId>maven-jsmooth-plugin</artifactId>
+                <version>0.2.0</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jsmoothcompile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <jsmoothFile>src/assembly/app.jsmooth</jsmoothFile>
+                    <iconLocation>src/assembly/resources/app.ico</iconLocation>
+                    <dependencyBaseDir>lib</dependencyBaseDir>
+                    <includeDependencies>true</includeDependencies>
+                    <setExeName>true</setExeName>
+                    <setJarName>true</setJarName>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+</project>

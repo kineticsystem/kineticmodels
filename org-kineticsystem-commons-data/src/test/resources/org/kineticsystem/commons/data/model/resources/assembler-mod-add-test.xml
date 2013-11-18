@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<document>
+
+    <!-- Conversions used to test the ListEventAssembler algorithm. -->
+    
+    <conversions>
+        
+        <!-- ADD event after a MOD event. -->
+
+        <conversion>
+            <input-sequence>
+                <event type="mod" x="3" y="7"/>
+                <event type="add" x="1" y="2"/>
+            </input-sequence>
+            <output-sequence>
+                <event type="add" x="1" y="2"/>
+                <event type="mod" x="5" y="9"/>
+            </output-sequence>
+        </conversion>
+
+        <conversion>
+            <input-sequence>
+                <event type="mod" x="3" y="7"/>
+                <event type="add" x="5" y="6"/>
+            </input-sequence>
+            <output-sequence>
+                <event type="add" x="3" y="4"/>
+                <event type="mod" x="5" y="9"/>
+            </output-sequence>
+        </conversion>
+
+        <conversion>
+            <input-sequence>
+                <event type="mod" x="3" y="7"/>
+                <event type="add" x="8" y="9"/>
+            </input-sequence>
+            <output-sequence>
+                <event type="add" x="3" y="4"/>
+                <event type="mod" x="5" y="9"/>
+            </output-sequence>
+        </conversion>
+        
+    </conversions>
+    
+</document>

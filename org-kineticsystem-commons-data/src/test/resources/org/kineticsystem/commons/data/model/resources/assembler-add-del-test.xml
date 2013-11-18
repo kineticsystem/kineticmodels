@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<document>
+
+    <!-- Conversions used to test the ListEventAssembler algorithm. -->
+    
+    <conversions>
+
+        <!-- DEL event after an ADD event. -->
+
+        <conversion>
+            <input-sequence>
+                <event type="add" x="3" y="6"/>
+                <event type="del" x="1" y="1"/>
+            </input-sequence>
+            <output-sequence>
+                <event type="del" x="1" y="1"/>
+                <event type="add" x="2" y="5"/>
+            </output-sequence>
+        </conversion>
+
+        <conversion>
+            <input-sequence>
+                <event type="add" x="3" y="6"/>
+                <event type="del" x="1" y="2"/>
+            </input-sequence>
+            <output-sequence>
+                <event type="add" x="1" y="2"/>
+                <event type="mod" x="3" y="4"/>
+            </output-sequence>
+        </conversion>
+
+        <conversion>
+            <input-sequence>
+                <event type="add" x="3" y="6"/>
+                <event type="del" x="1" y="3"/>
+            </input-sequence>
+            <output-sequence>
+                <event type="add" x="1" y="1"/>
+                <event type="mod" x="2" y="3"/>
+            </output-sequence>
+        </conversion>
+
+        <conversion>
+            <input-sequence>
+                <event type="add" x="3" y="6"/>
+                <event type="del" x="1" y="4"/>
+            </input-sequence>
+            <output-sequence>
+                <event type="mod" x="1" y="2"/>
+            </output-sequence>
+        </conversion>
+
+        <conversion>
+            <input-sequence>
+                <event type="add" x="3" y="6"/>
+                <event type="del" x="1" y="5"/>
+            </input-sequence>
+            <output-sequence>
+                <event type="del" x="1" y="1"/>
+                <event type="mod" x="1" y="1"/>
+            </output-sequence>
+        </conversion>
+
+        <conversion>
+            <input-sequence>
+                <event type="add" x="3" y="6"/>
+                <event type="del" x="1" y="6"/>
+            </input-sequence>
+            <output-sequence>
+                <event type="del" x="1" y="2"/>
+            </output-sequence>
+        </conversion>
+
+        <conversion>
+            <input-sequence>
+                <event type="add" x="3" y="6"/>
+                <event type="del" x="1" y="7"/>
+            </input-sequence>
+            <output-sequence>
+                <event type="del" x="1" y="3"/>
+            </output-sequence>
+        </conversion>
+
+        <conversion>
+            <input-sequence>
+                <event type="add" x="3" y="6"/>
+                <event type="del" x="2" y="4"/>
+            </input-sequence>
+            <output-sequence>
+                <event type="add" x="2" y="2"/>
+                <event type="mod" x="3" y="3"/>
+            </output-sequence>
+        </conversion>
+
+        <conversion>
+            <input-sequence>
+                <event type="add" x="3" y="6"/>
+                <event type="del" x="5" y="7"/>
+            </input-sequence>
+            <output-sequence>
+                <event type="add" x="3" y="3"/>
+                <event type="mod" x="4" y="4"/>
+            </output-sequence>
+        </conversion>
+
+        <conversion>
+            <input-sequence>
+                <event type="add" x="3" y="7"/>
+                <event type="del" x="3" y="4"/>
+            </input-sequence>
+            <output-sequence>
+                <event type="add" x="3" y="5"/>
+            </output-sequence>
+        </conversion>
+
+        <conversion>
+            <input-sequence>
+                <event type="add" x="3" y="6"/>
+                <event type="del" x="2" y="7"/>
+            </input-sequence>
+            <output-sequence>
+                <event type="del" x="2" y="3"/>
+            </output-sequence>
+        </conversion>
+
+        <conversion>
+            <input-sequence>
+                <event type="add" x="3" y="6"/>
+                <event type="del" x="3" y="6"/>
+            </input-sequence>
+            <output-sequence>
+            </output-sequence>
+        </conversion>
+
+        <conversion>
+            <input-sequence>
+                <event type="add" x="3" y="6"/>
+                <event type="del" x="7" y="8"/>
+            </input-sequence>
+            <output-sequence>
+                <event type="add" x="3" y="4"/>
+                <event type="mod" x="5" y="6"/>
+            </output-sequence>
+        </conversion>
+
+        <conversion>
+            <input-sequence>
+                <event type="add" x="3" y="6"/>
+                <event type="del" x="6" y="9"/>
+            </input-sequence>
+            <output-sequence>
+                <event type="mod" x="3" y="5"/>
+            </output-sequence>
+        </conversion>
+
+    </conversions>
+    
+</document>

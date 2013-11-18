@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.kineticsystem.commons</groupId>
+    <artifactId>org-kineticsystem-commons</artifactId>
+    <name>Kinetic System Commons</name>
+    <packaging>pom</packaging>
+    <version>SNAPSHOT</version>
+    <url>http://www.kineticsystem.org/commons</url>
+    <repositories/>
+    <dependencies/>
+    <!-- Module order is important. -->
+    <modules>
+        <module>../org-kineticsystem-commons-threads</module>
+        <module>../org-kineticsystem-commons-layout</module>
+        <module>../org-kineticsystem-commons-layout-demo</module>
+        <module>../org-kineticsystem-commons-data</module>
+		<module>../org-kineticsystem-commons-data-demo</module>
+    </modules>
+</project>

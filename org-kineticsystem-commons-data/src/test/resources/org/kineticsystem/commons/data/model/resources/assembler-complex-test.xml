@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<document>
+
+    <!-- Conversions used to test the ListEventAssembler algorithm. -->
+    
+    <conversions>
+        
+        <!-- ADD propagation. -->
+        
+        <conversion>
+            <input-sequence>
+                <event type="mod" x="0" y="0"/>
+                <event type="add" x="0" y="0"/>
+                <event type="add" x="0" y="0"/>
+                <event type="add" x="0" y="0"/>
+            </input-sequence>
+            <output-sequence>
+                <event type="add" x="0" y="2"/>
+                <event type="mod" x="3" y="3"/>
+            </output-sequence>
+        </conversion>
+        
+        <!-- DEL propagation. -->
+        
+        <conversion>
+            <input-sequence>
+                <event type="mod" x="3" y="4"/>
+                <event type="del" x="6" y="7"/>
+                <event type="del" x="1" y="7"/>
+            </input-sequence>
+            <output-sequence>
+                <event type="del" x="1" y="9"/>
+            </output-sequence>
+        </conversion>
+        
+        <!-- DEL propagation. -->
+        
+        <conversion>
+            <input-sequence>
+                <event type="del" x="7" y="8"/>
+                <event type="add" x="7" y="10"/>
+                <event type="del" x="4" y="9"/>
+            </input-sequence>
+            <output-sequence>
+                <event type="del" x="4" y="7"/>
+                <event type="mod" x="4" y="4"/>
+            </output-sequence>
+        </conversion>
+        
+    </conversions>
+    
+</document>
